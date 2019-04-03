@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh'}
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -45,6 +46,7 @@ set synmaxcol=250
 set undofile
 set splitbelow
 set splitright
+set hidden
 
 set tabstop=4
 set expandtab
@@ -161,3 +163,12 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+
+" Language server
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['pyls'],
+    \ 'c': ['clangd'],
+    \ 'cpp': ['clangd'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
