@@ -72,20 +72,20 @@ endif
 
 colorscheme onedark
 
-"Airline settings
+" Airline settings
 let g:airline_detect_paste=1 "Show PASTE if in paste mode
 let g:airline#extensions#tabline#enabled = 1 "Show airline for tabs too
 set laststatus=2 "Always dispay airline status bar
 
-"Key bindings
+" Key bindings
 nmap <F12> :%!jq '.'<cr>
 nmap <F11> :%s/\r\(\n\)/\1/g<cr>
 nmap <F10> :%s/\n//g<cr>
 
-"HTML settings
+" HTML settings
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
-"Filetype aliases
+" Filetype aliases
 au BufNewFile,BufRead *.ino set filetype=c
 au BufNewFile,BufRead *.asm set filetype=nasm
 
@@ -95,7 +95,7 @@ augroup BgHighlight
     autocmd WinLeave * set nocul
 augroup END
 
-"Latex settings
+" Latex settings
 command Texmode set spell spelllang=en_us wrap linebreak
 set grepprg=grep\ -nH\ $*
 
@@ -105,65 +105,66 @@ let Tex_FoldedSections=""
 let Tex_FoldedEnvironments=""
 let Tex_FoldedMisc=""
 
-"fzf
+" fzf
 nmap <C-p> :Files<CR>
 nmap <Leader>t :Tags<CR>
 nmap ; :Buffers<CR>
 
-"ack.vim
+" ack.vim
 let g:ackprg = 'ag --vimgrep'
 cnoreabbrev Ack Ack!
 nnoremap <Leader>s :Ack! <cword><CR>
 nnoremap <Leader>a :Ack!<Space>
 
-"Markdown
+" Markdown
 let g:vim_markdown_folding_disabled=0
 
-"Nerdtree settings
+" Nerdtree settings
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowHidden=1
 nmap <Leader>n :NERDTreeFocus<cr>
 
-"Kernel mode
+" Kernel mode
 command Kernelmode set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
-"Gitgutter
+" Gitgutter
 let g:gitgutter_diff_args = '-w'
 
-"EasyMotion
+" EasyMotion
 let g:EasyMotion_do_mapping = 0
 nmap s <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
 
-"Matchit
+" Matchit
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
 endif
 
-"Goyo
+" Goyo
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 let g:goyo_width = 120
 
-"Rainbow
+" Rainbow
 let g:rainbow_active = 1
 
-"vim-rooter
+" vim-rooter
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_silent_chdir = 1
 
-"vim-polyglot
+" vim-polyglot
 let g:polyglot_disabled = ['latex']
 
-"omnicompletion
+" omnicompletion
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use deoplete.
+" Deoplete
 let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('auto_complete_delay', 200)
 
 " Language server
 let g:LanguageClient_serverCommands = {
