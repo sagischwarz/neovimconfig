@@ -58,6 +58,7 @@ set nobackup
 set nowritebackup
 
 set ic
+set nohlsearch
 
 autocmd BufEnter * silent! lcd %:p:h
 
@@ -171,6 +172,9 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ 'c': ['clangd'],
     \ 'cpp': ['clangd'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'vue': ['vls']
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
