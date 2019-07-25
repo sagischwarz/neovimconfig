@@ -118,7 +118,8 @@ nnoremap <Leader>s :Ack! <cword><CR>
 nnoremap <Leader>a :Ack!<Space>
 
 " Markdown
-let g:vim_markdown_folding_disabled=0
+let g:vim_markdown_folding_disabled=1
+au BufNewFile,BufRead *.md,*.MD set wrap linebreak
 
 " Nerdtree settings
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
