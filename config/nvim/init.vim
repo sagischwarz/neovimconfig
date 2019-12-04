@@ -166,7 +166,8 @@ set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Deoplete
-"let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
+autocmd FileType markdown,text call deoplete#custom#buffer_option('auto_complete', v:false)
 call deoplete#custom#option('auto_complete_delay', 200)
 
 " Language server
@@ -176,7 +177,8 @@ let g:LanguageClient_serverCommands = {
     \ 'cpp': ['clangd'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'typescript': ['javascript-typescript-stdio'],
-    \ 'vue': ['vls']
+    \ 'vue': ['vls'],
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
