@@ -175,11 +175,13 @@ map <F2> :ALERename<cr>
 " ale
 let g:ale_completion_tsserver_autoimport = 1
 let g:ale_linters = {'rust': ['rls']}
-let g:ale_linters_ignore = {'typescript': ['tslint']}
+let g:ale_linters_ignore = {'typescript': ['tslint'], 'html': ['tidy']}
 let g:ale_rust_cargo_use_clippy = 1
 
-let g:ale_html_tidy_options = '-q -e -language en --custom-tags blocklevel'
+let g:ale_html_htmlhint_options = '--rules attr-no-duplication,csslint,space-tab-mixed-disabled,tag-pair'
 
 nnoremap <silent> gd :ALEGoToDefinition<CR>
 nnoremap <silent> fr :ALEFindReferences<CR>
 
+" autoformat
+map <F3> :Autoformat<CR>
