@@ -1,6 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh'}
+Plug 'dense-analysis/ale'
 Plug 'neomake/neomake'
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
@@ -17,7 +17,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'luochen1990/rainbow'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
@@ -83,6 +82,7 @@ set laststatus=2 "Always dispay airline status bar
 nmap <F12> :%!jq '.'<cr>
 nmap <F11> :%s/\r\(\n\)/\1/g<cr>
 nmap <F10> :%s/\n//g<cr>
+nmap qb :bp\|bd #<CR>
 
 " HTML settings
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -132,6 +132,7 @@ command Kernelmode set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
 " Gitgutter
 let g:gitgutter_diff_args = '-w'
+set updatetime=250
 
 " EasyMotion
 let g:EasyMotion_do_mapping = 0
@@ -150,9 +151,6 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 let g:goyo_width = 120
 
-" Rainbow
-let g:rainbow_active = 1
-
 " vim-rooter
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_silent_chdir = 1
@@ -161,24 +159,27 @@ let g:rooter_silent_chdir = 1
 let g:polyglot_disabled = ['latex', 'csv']
 
 " omnicompletion
-set omnifunc=syntaxcomplete#Complete
-set completeopt=longest,menuone
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"set omnifunc=syntaxcomplete#Complete
+"set completeopt=longest,menuone
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 autocmd FileType markdown,text call deoplete#custom#buffer_option('auto_complete', v:false)
 call deoplete#custom#option('auto_complete_delay', 200)
+call deoplete#custom#option('sources', {'_': ['ale',],})
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+map <F2> :ALERename<cr>
 
-" Language server
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['pyls'],
-    \ 'c': ['clangd'],
-    \ 'cpp': ['clangd'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ 'vue': ['vls'],
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ }
+" ale
+let g:ale_completion_tsserver_autoimport = 1
+let g:ale_linters = {'rust': ['rls']}
+let g:ale_linters_ignore = {'typescript': ['tslint']}
+let g:ale_rust_cargo_use_clippy = 1
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+let g:ale_html_tidy_options = '-q -e -language en --custom-tags blocklevel'
+
+nnoremap <silent> gd :ALEGoToDefinition<CR>
+nnoremap <silent> fr :ALEFindReferences<CR>
+
