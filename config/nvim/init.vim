@@ -60,6 +60,9 @@ set nowritebackup
 set ic
 set nohlsearch
 
+set wildmenu
+set wildmode=list:longest,full
+
 autocmd BufEnter * silent! lcd %:p:h
 
 if has("gui_running")
