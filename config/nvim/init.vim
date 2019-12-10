@@ -112,6 +112,7 @@ let Tex_FoldedMisc=""
 
 " fzf
 nmap <C-p> :Files<CR>
+nmap <C-c> :Command<CR>
 nmap <Leader>t :Tags<CR>
 nmap ; :Buffers<CR>
 
