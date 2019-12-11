@@ -86,6 +86,7 @@ nmap <F12> :%!jq '.'<cr>
 nmap <F11> :%s/\r\(\n\)/\1/g<cr>
 nmap <F10> :%s/\n//g<cr>
 nmap qb :bp\|bd #<CR>
+map <c-i> :bn<cr>
 
 " HTML settings
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -135,7 +136,6 @@ nmap <Leader>n :NERDTreeFocus<cr>
 command Kernelmode set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
 " Gitgutter
-let g:gitgutter_diff_args = '-w'
 set updatetime=250
 
 " EasyMotion
