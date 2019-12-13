@@ -82,11 +82,8 @@ let g:airline#extensions#tabline#enabled = 1 "Show airline for tabs too
 set laststatus=2 "Always dispay airline status bar
 
 " Key bindings
-nmap <F12> :%!jq '.'<cr>
-nmap <F11> :%s/\r\(\n\)/\1/g<cr>
-nmap <F10> :%s/\n//g<cr>
 nmap qb :bp\|bd #<CR>
-map <c-i> :bn<cr>
+map <c-i> :bn<CR>
 
 " HTML settings
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -130,7 +127,7 @@ au BufNewFile,BufRead *.md,*.MD set wrap linebreak
 " Nerdtree settings
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowHidden=1
-nmap <Leader>n :NERDTreeFocus<cr>
+nmap <Leader>n :NERDTreeFocus<CR>
 
 " Kernel mode
 command Kernelmode set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
@@ -174,7 +171,6 @@ call deoplete#custom#option('auto_complete_delay', 200)
 call deoplete#custom#option('sources', {'_': ['ale',],})
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-map <F2> :ALERename<cr>
 
 " ale
 let g:ale_completion_tsserver_autoimport = 1
@@ -184,8 +180,13 @@ let g:ale_rust_cargo_use_clippy = 1
 
 let g:ale_html_htmlhint_options = '--rules attr-no-duplication,csslint,space-tab-mixed-disabled,tag-pair'
 
+map <F1> :ALEHover<CR>
+map <F2> :ALERename<CR>
+map <F3> :ALEFindReferences<CR>
 nnoremap <silent> gd :ALEGoToDefinition<CR>
-nnoremap <silent> fr :ALEFindReferences<CR>
 
 " autoformat
-map <F3> :Autoformat<CR>
+map <F12> :Autoformat<CR>
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
