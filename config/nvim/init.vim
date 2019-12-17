@@ -76,6 +76,10 @@ endif
 
 colorscheme dracula
 
+" Folding
+set foldmethod=syntax
+au BufRead * normal zR
+
 " Airline settings
 let g:airline_detect_paste=1 "Show PASTE if in paste mode
 let g:airline#extensions#tabline#enabled = 1 "Show airline for tabs too
@@ -99,7 +103,7 @@ augroup BgHighlight
 augroup END
 
 " Latex settings
-command Texmode set spell spelllang=en_us wrap linebreak
+au BufNewFile,BufRead *.tex set spell spelllang=en_us wrap linebreak
 set grepprg=grep\ -nH\ $*
 
 let g:tex_flavor='latex'
@@ -121,7 +125,7 @@ nnoremap <Leader>s :Ack! <cword><CR>
 nnoremap <Leader>a :Ack!<Space>
 
 " Markdown
-let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_folding_disabled=0
 au BufNewFile,BufRead *.md,*.MD set wrap linebreak
 
 " Nerdtree settings
