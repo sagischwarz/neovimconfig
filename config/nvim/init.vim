@@ -127,7 +127,7 @@ au BufNewFile,BufRead *.md,*.MD set wrap linebreak
 " Nerdtree settings
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowHidden=1
-nmap <Leader>n :NERDTreeFocus<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
 
 " Kernel mode
 command Kernelmode set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
