@@ -180,12 +180,12 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:ale_completion_tsserver_autoimport = 1
 let g:ale_linters = {'rust': ['rls'], 'python': ['pyls', 'mypy']}
 let g:ale_linters_ignore = {'typescript': ['tslint'], 'html': ['tidy']}
-let g:ale_fixers = {'python': ['black']}
-let g:ale_rust_cargo_use_clippy = 1
+let g:ale_fixers = {'python': ['black'], 'rust': ['rustfmt']}
 
 let g:ale_html_htmlhint_options = '--rules attr-no-duplication,csslint,space-tab-mixed-disabled,tag-pair'
 let g:ale_python_pyls_config = {'pyls': {'plugins': {'pycodestyle': {'enabled': v:false}}}}
 let g:ale_python_black_options = '-l 120'
+let g:ale_rust_rls_config = {'rust': {'clippy_preference': 'on'}}
 
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
