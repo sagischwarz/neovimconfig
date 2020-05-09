@@ -29,6 +29,7 @@ Plug 'airblade/vim-rooter'
 Plug 'wlangstroth/vim-racket'
 Plug 'lervag/vimtex'
 Plug 'juliosueiras/vim-terraform-completion'
+Plug 'leissa/vim-acme'
 
 call plug#end()
 
@@ -61,6 +62,8 @@ set nohlsearch
 
 set wildmenu
 set wildmode=list:longest,full
+
+set exrc
 
 autocmd BufEnter * silent! lcd %:p:h
 
