@@ -132,8 +132,8 @@ au BufNewFile,BufRead *.md,*.MD set wrap linebreak
 
 " Nerdtree settings
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let NERDTreeShowHidden=1
-nmap <Leader>n :NERDTreeToggle<CR>
+let NERDTreeShowHidden = 1
+nmap <Leader>n :NERDTreeFocus<CR>
 
 " Kernel mode
 command Kernelmode set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
@@ -173,7 +173,7 @@ let g:polyglot_disabled = ['latex', 'csv']
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 autocmd FileType markdown,text call deoplete#custom#buffer_option('auto_complete', v:false)
-call deoplete#custom#option('auto_complete_delay', 200)
+call deoplete#custom#option('auto_complete_delay', 0)
 call deoplete#custom#option('sources', {'_': ['ale',],})
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
