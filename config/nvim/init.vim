@@ -43,7 +43,7 @@ set mouse=a "Enable mouse in terminal
 set shell=zsh
 set scrolloff=3
 syntax on
-set synmaxcol=250
+set synmaxcol=320
 set undofile
 set splitbelow
 set splitright
