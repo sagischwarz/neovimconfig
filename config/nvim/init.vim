@@ -1,3 +1,6 @@
+" vim-polyglot: Needs to be done before loading the plugin
+let g:polyglot_disabled = ['latex', 'csv']
+
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dense-analysis/ale'
@@ -161,9 +164,6 @@ let g:goyo_width = 120
 " vim-rooter
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_silent_chdir = 1
-
-" vim-polyglot
-let g:polyglot_disabled = ['latex', 'csv']
 
 " omnicompletion
 "set omnifunc=syntaxcomplete#Complete
