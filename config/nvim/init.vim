@@ -79,6 +79,8 @@ autocmd BufEnter * silent! lcd %:p:h
 if has("gui_running")
     set lines=35 columns=130
 endif
+
+set guifont=Hack:h10
 set clipboard=unnamedplus
 
 if (has("termguicolors"))
