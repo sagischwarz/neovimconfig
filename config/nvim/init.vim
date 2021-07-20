@@ -21,6 +21,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'arcticicestudio/nord-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -37,7 +38,6 @@ Plug 'alvan/vim-closetag'
 Plug 'airblade/vim-rooter'
 Plug 'wlangstroth/vim-racket'
 Plug 'lervag/vimtex'
-Plug 'juliosueiras/vim-terraform-completion'
 Plug 'leissa/vim-acme'
 
 call plug#end()
@@ -87,7 +87,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme dracula
+colorscheme nord
 
 " Folding
 set foldmethod=syntax
