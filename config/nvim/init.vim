@@ -11,6 +11,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dense-analysis/ale'
 Plug 'neomake/neomake'
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
