@@ -101,7 +101,6 @@ set laststatus=2 "Always dispay airline status bar
 
 " Key bindings
 nmap qb :bp\|bd #<CR>
-map <c-i> :bn<CR>
 
 " HTML settings
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
