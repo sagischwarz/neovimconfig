@@ -125,6 +125,8 @@ let Tex_FoldedSections=""
 let Tex_FoldedEnvironments=""
 let Tex_FoldedMisc=""
 
+command! -nargs=* Writemode set wrap linebreak nolist
+
 " fzf
 nmap <C-p> :Files<CR>
 nmap <C-c> :Command<CR>
