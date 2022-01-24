@@ -94,13 +94,9 @@ colorscheme nord
 set foldmethod=syntax
 au BufRead * normal zR
 
-" Airline settings
-let g:airline_detect_paste=1 "Show PASTE if in paste mode
-let g:airline#extensions#tabline#enabled = 1 "Show airline for tabs too
-set laststatus=2 "Always dispay airline status bar
-
 " Key bindings
 nmap qb :bp\|bd #<CR>
+nmap <A-S-r> :ol<CR>
 
 " HTML settings
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -115,6 +111,13 @@ augroup BgHighlight
     autocmd WinLeave * set nocul
 augroup END
 
+command! -nargs=* Writemode set wrap linebreak nolist
+
+" Airline settings
+let g:airline_detect_paste=1 "Show PASTE if in paste mode
+let g:airline#extensions#tabline#enabled = 1 "Show airline for tabs too
+set laststatus=2 "Always dispay airline status bar
+
 " Latex settings
 au BufNewFile,BufRead *.tex set spell spelllang=en_us wrap linebreak
 set grepprg=grep\ -nH\ $*
@@ -124,8 +127,6 @@ let g:tex_flavor='latex'
 let Tex_FoldedSections=""
 let Tex_FoldedEnvironments=""
 let Tex_FoldedMisc=""
-
-command! -nargs=* Writemode set wrap linebreak nolist
 
 " fzf
 nmap <C-p> :Files<CR>
