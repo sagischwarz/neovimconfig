@@ -81,7 +81,7 @@ if has("gui_running")
     set lines=35 columns=130
 endif
 
-set guifont=Hack:h10
+set guifont=Fira\ Code:h10
 set clipboard=unnamedplus
 
 if (has("termguicolors"))
