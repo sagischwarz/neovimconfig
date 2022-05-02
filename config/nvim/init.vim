@@ -8,38 +8,36 @@ endif
 let g:polyglot_disabled = ['latex', 'csv']
 
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'dense-analysis/ale'
-Plug 'neomake/neomake'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'easymotion/vim-easymotion'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'arcticicestudio/nord-vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'mileszs/ack.vim'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-unimpaired'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-sleuth'
-Plug 'Chiel92/vim-autoformat'
-Plug 'alvan/vim-closetag'
-Plug 'airblade/vim-rooter'
-Plug 'wlangstroth/vim-racket'
-Plug 'lervag/vimtex'
-Plug 'leissa/vim-acme'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Async completion framework
+Plug 'dense-analysis/ale' " Linting
+Plug 'neomake/neomake' " Async run programs
+Plug 'junegunn/fzf' " Fuzzy search
+Plug 'junegunn/fzf.vim' " Fuzzy search
+Plug 'scrooloose/nerdtree' " File tree
+Plug 'vim-airline/vim-airline' " Status line
+Plug 'vim-airline/vim-airline-themes' " Status line themes
+Plug 'airblade/vim-gitgutter' " Git hints in gutter
+Plug 'godlygeek/tabular' " Text aligning
+Plug 'plasticboy/vim-markdown' " Markdown support
+Plug 'easymotion/vim-easymotion' " Quickly move to text with two characters
+Plug 'terryma/vim-multiple-cursors' " Multi cursor support
+Plug 'arcticicestudio/nord-vim' " Nord theme
+Plug 'sheerun/vim-polyglot' " Syntax and indentation for many languages
+Plug 'junegunn/goyo.vim' " Distraction free writing
+Plug 'junegunn/limelight.vim' " Highlight current text block
+Plug 'tpope/vim-fugitive' " Git client
+Plug 'mileszs/ack.vim' " Search tool
+Plug 'tpope/vim-eunuch' " Additional commands
+Plug 'tpope/vim-surround' " Surround with characters
+Plug 'tpope/vim-repeat' " Improved . repeating for commands
+Plug 'tpope/vim-unimpaired' " [-mappings
+Plug 'scrooloose/nerdcommenter' " Improved comment handling
+Plug 'tpope/vim-sleuth' " Heuristically set buffer options 
+Plug 'Chiel92/vim-autoformat' " Autoformat files
+Plug 'alvan/vim-closetag' " Close HTML tags
+Plug 'airblade/vim-rooter' " Change working directory
+Plug 'lervag/vimtex' " LaTeX support
+Plug 'leissa/vim-acme' " 6502-family assembler
 
 call plug#end()
 
@@ -49,7 +47,7 @@ set nowrap
 set textwidth=0 wrapmargin=0
 set guioptions+=b
 set cursorline
-set mouse=a "Enable mouse in terminal
+set mouse=a " Enable mouse in terminal
 set shell=zsh
 set scrolloff=3
 syntax on
@@ -114,9 +112,9 @@ augroup END
 command! -nargs=* Writemode set wrap linebreak nolist
 
 " Airline settings
-let g:airline_detect_paste=1 "Show PASTE if in paste mode
-let g:airline#extensions#tabline#enabled = 1 "Show airline for tabs too
-set laststatus=2 "Always dispay airline status bar
+let g:airline_detect_paste=1 " Show PASTE if in paste mode
+let g:airline#extensions#tabline#enabled = 1 " Show airline for tabs too
+set laststatus=2 " Always dispay airline status bar
 
 " Latex settings
 au BufNewFile,BufRead *.tex set spell spelllang=en_us wrap linebreak
@@ -177,9 +175,9 @@ let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_silent_chdir = 1
 
 " omnicompletion
-"set omnifunc=syntaxcomplete#Complete
-"set completeopt=longest,menuone
-"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" set omnifunc=syntaxcomplete#Complete
+" set completeopt=longest,menuone
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
