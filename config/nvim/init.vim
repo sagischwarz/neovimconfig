@@ -43,6 +43,7 @@ Plug 'alvan/vim-closetag' " Close HTML tags
 Plug 'airblade/vim-rooter' " Change working directory
 Plug 'lervag/vimtex' " LaTeX support
 Plug 'leissa/vim-acme' " 6502-family assembler
+Plug 'mbbill/undotree' " Undo tree
 
 call plug#end()
 
@@ -282,3 +283,6 @@ let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 0
 let g:formatters_python = ['black']
+
+" undotree
+nmap <A-u> :UndotreeToggle<CR>
