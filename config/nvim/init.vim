@@ -32,7 +32,6 @@ Plug 'sheerun/vim-polyglot' " Syntax and indentation for many languages
 Plug 'junegunn/goyo.vim' " Distraction free writing
 Plug 'junegunn/limelight.vim' " Highlight current text block
 Plug 'tpope/vim-fugitive' " Git client
-Plug 'mileszs/ack.vim' " Search tool
 Plug 'tpope/vim-eunuch' " Additional commands
 Plug 'tpope/vim-surround' " Surround with characters
 Plug 'tpope/vim-repeat' " Improved . repeating for commands
@@ -101,7 +100,7 @@ au BufRead * normal zR
 
 " Key bindings
 nmap qb :bp\|bd #<CR>
-nmap <A-S-r> :ol<CR>
+nmap <C-w>b :bp\|bd #<CR>
 
 " HTML settings
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -138,12 +137,11 @@ nmap <C-p> :Files<CR>
 nmap <C-c> :Command<CR>
 nmap <Leader>t :Tags<CR>
 nmap ; :Buffers<CR>
-
-" ack.vim
-let g:ackprg = 'ag --vimgrep'
-cnoreabbrev Ack Ack!
-nnoremap <Leader>s :Ack! <cword><CR>
-nnoremap <Leader>a :Ack!<Space>
+nmap <Leader>s :Ag <C-R><C-W><CR>
+nmap <Leader>a :Ag <CR>
+nmap <A-S-r> :History<CR>
+nmap <C-h> :BCommits<CR>
+nmap <A-h> :Commits<CR>
 
 " Markdown
 let g:vim_markdown_folding_disabled=0
@@ -152,7 +150,7 @@ au BufNewFile,BufRead *.md,*.MD set wrap linebreak
 " Nerdtree settings
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowHidden = 1
-nmap <Leader>n :NERDTreeFocus<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
 
 " Kernel mode
 command Kernelmode set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
@@ -210,7 +208,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F1>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F3>', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F3>', '<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F12>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
