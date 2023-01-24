@@ -44,6 +44,7 @@ Plug 'airblade/vim-rooter' " Change working directory
 Plug 'lervag/vimtex' " LaTeX support
 Plug 'leissa/vim-acme' " 6502-family assembler
 Plug 'mbbill/undotree' " Undo tree
+Plug 'puremourning/vimspector' " Debugger
 
 call plug#end()
 
@@ -134,7 +135,7 @@ let Tex_FoldedEnvironments=""
 let Tex_FoldedMisc=""
 
 " fzf
-nmap <C-p> :Files<CR>
+nmap <C-p> :execute 'Files '.FindRootDirectory()<CR>
 nmap <C-c> :Command<CR>
 nmap <Leader>t :Tags<CR>
 nmap ; :Buffers<CR>
@@ -286,3 +287,16 @@ let g:formatters_python = ['black']
 
 " undotree
 nmap <A-u> :UndotreeToggle<CR>
+
+" Vimspector
+nmap <Leader>di <Plug>VimspectorBalloonEval
+xmap <Leader>di <Plug>VimspectorBalloonEval
+nmap <Leader>da :VimspectorReset<CR>
+xmap <Leader>da :VimspectorReset<CR>
+nmap <F5> <Plug>VimspectorContinue
+nmap <F6> <Plug>VimspectorPause
+nmap <F7> <Plug>VimspectorStop
+nmap <F8> <Plug>VimspectorJumpToNextBreakpoint
+nmap <F9> <Plug>VimspectorToggleBreakpoint
+nmap <F10> <Plug>VimspectorStepOver
+nmap <F11> <Plug>VimspectorStepInto
