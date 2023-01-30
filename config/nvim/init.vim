@@ -97,12 +97,12 @@ endif
 colorscheme nord
 
 " Folding
-set foldmethod=syntax
-au BufRead * normal zR
+set nofoldenable
 
 " Key bindings
 nmap qb :bp\|bd #<CR>
 nmap <C-w>b :bp\|bd #<CR>
+nmap <Leader>fw :silent execute "!firefox 'https://google.com/search?q=<cword>'"<CR>
 
 " HTML settings
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -152,7 +152,7 @@ au BufNewFile,BufRead *.md,*.MD set wrap linebreak
 " Nerdtree settings
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowHidden = 1
-nmap <Leader>n :NERDTreeToggle<CR>
+nmap <Leader>n :NERDTreeFocus<CR>
 
 " Kernel mode
 command Kernelmode set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
@@ -300,3 +300,10 @@ nmap <F8> <Plug>VimspectorJumpToNextBreakpoint
 nmap <F9> <Plug>VimspectorToggleBreakpoint
 nmap <F10> <Plug>VimspectorStepOver
 nmap <F11> <Plug>VimspectorStepInto
+let g:vimspector_sign_priority = {
+  \    'vimspectorBP':         400,
+  \    'vimspectorBPCond':     300,
+  \    'vimspectorBPLog':      200,
+  \    'vimspectorBPDisabled': 100,
+  \    'vimspectorPC':         999,
+  \ }
