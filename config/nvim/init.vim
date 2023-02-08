@@ -45,6 +45,7 @@ Plug 'lervag/vimtex' " LaTeX support
 Plug 'leissa/vim-acme' " 6502-family assembler
 Plug 'mbbill/undotree' " Undo tree
 Plug 'puremourning/vimspector' " Debugger
+Plug 'voldikss/vim-floaterm' " Floating terminal
 
 call plug#end()
 
@@ -218,3 +219,12 @@ let g:vimspector_sign_priority = {
 " unimpaired (missing mappings)
 nmap [t :tabprevious<CR>
 nmap ]t :tabnext<CR>
+
+" Floaterm bindings
+let g:floaterm_height = 0.8
+let g:floaterm_width = 0.8
+let g:floaterm_keymap_toggle = '<Leader>tt'
+let g:floaterm_keymap_prev = '<Leader>tp'
+let g:floaterm_keymap_next = '<Leader>tn'
+let g:floaterm_keymap_kill = '<Leader>tk'
+nmap <Leader>tg :FloatermNew lazygit<CR>

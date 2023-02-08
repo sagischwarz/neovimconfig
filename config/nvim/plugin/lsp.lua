@@ -33,24 +33,34 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'pyright', 'rust_analyzer', 'tsserver', 'vuels' }
+local servers = { 'rust_analyzer', 'tsserver', 'vuels' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    debounce_text_changes = 150,
   }
 end
 
-lspconfig.pyright.setup {
-    settings = {
-        python = {
-            analysis = {
-                -- typeCheckingMode = "off"
-            }
-        }
-    }
-}
+ lspconfig.clangd.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    -- cmd = {
+    --   "clangd",
+    --   "--enable-config"
+    --   }
+ }
+
+ lspconfig.pyright.setup {
+     on_attach = on_attach,
+     capabilities = capabilities,
+     -- settings = {
+     --     python = {
+     --         analysis = {
+     --             typeCheckingMode = "off"
+     --         }
+     --     }
+     -- }
+ }
 
 -- luasnip setup
 local luasnip = require 'luasnip'
