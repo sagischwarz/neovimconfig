@@ -46,6 +46,7 @@ Plug 'leissa/vim-acme' " 6502-family assembler
 Plug 'mbbill/undotree' " Undo tree
 Plug 'puremourning/vimspector' " Debugger
 Plug 'voldikss/vim-floaterm' " Floating terminal
+Plug 'RRethy/vim-illuminate' " Highlight word under cursor
 
 call plug#end()
 
