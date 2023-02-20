@@ -47,6 +47,8 @@ Plug 'mbbill/undotree' " Undo tree
 Plug 'puremourning/vimspector' " Debugger
 Plug 'voldikss/vim-floaterm' " Floating terminal
 Plug 'RRethy/vim-illuminate' " Highlight word under cursor
+Plug 'nvim-lua/plenary.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 call plug#end()
 
