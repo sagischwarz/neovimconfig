@@ -57,6 +57,7 @@ end
      --     python = {
      --         analysis = {
      --             typeCheckingMode = "off"
+     --             diagnosticSeverityOverrides = {} 
      --         }
      --     }
      -- }
