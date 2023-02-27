@@ -47,8 +47,9 @@ Plug 'mbbill/undotree' " Undo tree
 Plug 'puremourning/vimspector' " Debugger
 Plug 'voldikss/vim-floaterm' " Floating terminal
 Plug 'RRethy/vim-illuminate' " Highlight word under cursor
-Plug 'nvim-lua/plenary.nvim'
-Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'nvim-lua/plenary.nvim' " Dependency for other plugins
+Plug 'jose-elias-alvarez/null-ls.nvim' " LSP wrapper for formatters
+Plug 'folke/todo-comments.nvim' " List TODOs from comments
 
 call plug#end()
 
@@ -224,10 +225,11 @@ nmap [t :tabprevious<CR>
 nmap ]t :tabnext<CR>
 
 " Floaterm bindings
-let g:floaterm_height = 0.8
-let g:floaterm_width = 0.8
+let g:floaterm_height = 0.9
+let g:floaterm_width = 0.9
 let g:floaterm_keymap_toggle = '<Leader>tt'
 let g:floaterm_keymap_prev = '<Leader>tp'
 let g:floaterm_keymap_next = '<Leader>tn'
 let g:floaterm_keymap_kill = '<Leader>tk'
 nmap <Leader>tg :FloatermNew lazygit<CR>
+
