@@ -20,14 +20,15 @@ Plug 'neomake/neomake' " Async run programs
 Plug 'junegunn/fzf' " Fuzzy search
 Plug 'junegunn/fzf.vim' " Fuzzy search
 Plug 'scrooloose/nerdtree' " File tree
-Plug 'vim-airline/vim-airline' " Status line
-Plug 'vim-airline/vim-airline-themes' " Status line themes
+Plug 'nvim-lualine/lualine.nvim' " Status line
 Plug 'airblade/vim-gitgutter' " Git hints in gutter
 Plug 'godlygeek/tabular' " Text aligning
 Plug 'plasticboy/vim-markdown' " Markdown support
 Plug 'easymotion/vim-easymotion' " Quickly move to text with two characters
 Plug 'terryma/vim-multiple-cursors' " Multi cursor support
 Plug 'arcticicestudio/nord-vim' " Nord theme
+Plug 'arzg/vim-colors-xcode' " XCode like theme
+Plug 'rakr/vim-one' " Atom One theme
 Plug 'sheerun/vim-polyglot' " Syntax and indentation for many languages
 Plug 'junegunn/goyo.vim' " Distraction free writing
 Plug 'junegunn/limelight.vim' " Highlight current text block
@@ -50,6 +51,7 @@ Plug 'RRethy/vim-illuminate' " Highlight word under cursor
 Plug 'nvim-lua/plenary.nvim' " Dependency for other plugins
 Plug 'jose-elias-alvarez/null-ls.nvim' " LSP wrapper for formatters
 Plug 'folke/todo-comments.nvim' " List TODOs from comments
+Plug 'f-person/auto-dark-mode.nvim' " Switch between dark and light mode
 
 call plug#end()
 
@@ -92,14 +94,14 @@ if has("gui_running")
     set lines=35 columns=130
 endif
 
-set guifont=Fira\ Code:h10
+set guifont=Fira\ Code:h14
 set clipboard=unnamedplus
 
-if (has("termguicolors"))
-  set termguicolors
-endif
+"if (has("termguicolors"))
+"  set termguicolors
+"endif
 
-colorscheme nord
+"colorscheme xcodelight
 
 " Folding
 set nofoldenable
