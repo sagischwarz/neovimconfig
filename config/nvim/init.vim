@@ -150,8 +150,8 @@ nmap <C-p> :execute 'Files '.FindRootDirectory()<CR>
 nmap <C-c> :Command<CR>
 nmap <Leader>t :Tags<CR>
 nmap ; :Buffers<CR>
-nmap <Leader>s :Ag <C-R><C-W><CR>
-nmap <Leader>a :Ag <CR>
+nmap <Leader>s :Rg <C-R><C-W><CR>
+nmap <Leader>a :Rg <CR>
 nmap <A-S-r> :History<CR>
 nmap <C-h> :BCommits<CR>
 nmap <A-h> :Commits<CR>
