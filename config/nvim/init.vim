@@ -60,7 +60,6 @@ let mapleader = "\<Space>"
 set number
 set nowrap
 set textwidth=0 wrapmargin=0
-set guioptions+=b
 set cursorline
 set mouse=a " Enable mouse in terminal
 set shell=zsh
