@@ -48,8 +48,6 @@ Plug 'mbbill/undotree' " Undo tree
 Plug 'puremourning/vimspector' " Debugger
 Plug 'voldikss/vim-floaterm' " Floating terminal
 Plug 'RRethy/vim-illuminate' " Highlight word under cursor
-Plug 'nvim-lua/plenary.nvim' " Dependency for other plugins
-Plug 'jose-elias-alvarez/null-ls.nvim' " LSP wrapper for formatters
 Plug 'folke/todo-comments.nvim' " List TODOs from comments
 Plug 'f-person/auto-dark-mode.nvim' " Switch between dark and light mode
 
