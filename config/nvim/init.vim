@@ -27,6 +27,7 @@ Plug 'plasticboy/vim-markdown' " Markdown support
 Plug 'easymotion/vim-easymotion' " Quickly move to text with two characters
 Plug 'terryma/vim-multiple-cursors' " Multi cursor support
 Plug 'arcticicestudio/nord-vim' " Nord theme
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' } " Catppuccin Theme
 Plug 'arzg/vim-colors-xcode' " XCode like theme
 Plug 'rakr/vim-one' " Atom One theme
 Plug 'sheerun/vim-polyglot' " Syntax and indentation for many languages
