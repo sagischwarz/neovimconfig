@@ -1,57 +1,69 @@
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 " vim-polyglot: Needs to be done before loading the plugin
 let g:polyglot_disabled = ['latex', 'csv']
 
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'neovim/nvim-lspconfig' "LSP base
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'neomake/neomake' " Async run programs
-Plug 'junegunn/fzf' " Fuzzy search
-Plug 'junegunn/fzf.vim' " Fuzzy search
-Plug 'scrooloose/nerdtree' " File tree
-Plug 'nvim-lualine/lualine.nvim' " Status line
-Plug 'airblade/vim-gitgutter' " Git hints in gutter
-Plug 'godlygeek/tabular' " Text aligning
-Plug 'plasticboy/vim-markdown' " Markdown support
-Plug 'easymotion/vim-easymotion' " Quickly move to text with two characters
-Plug 'terryma/vim-multiple-cursors' " Multi cursor support
-Plug 'arcticicestudio/nord-vim' " Nord theme
-Plug 'arzg/vim-colors-xcode' " XCode like theme
-Plug 'rakr/vim-one' " Atom One theme
-Plug 'sheerun/vim-polyglot' " Syntax and indentation for many languages
-Plug 'junegunn/goyo.vim' " Distraction free writing
-Plug 'junegunn/limelight.vim' " Highlight current text block
-Plug 'tpope/vim-fugitive' " Git client
-Plug 'tpope/vim-eunuch' " Additional commands
-Plug 'tpope/vim-surround' " Surround with characters
-Plug 'tpope/vim-repeat' " Improved . repeating for commands
-Plug 'tpope/vim-unimpaired' " [-mappings
-Plug 'scrooloose/nerdcommenter' " Improved comment handling
-Plug 'tpope/vim-sleuth' " Heuristically set buffer options 
-Plug 'Chiel92/vim-autoformat' " Autoformat files
-Plug 'alvan/vim-closetag' " Close HTML tags
-Plug 'airblade/vim-rooter' " Change working directory
-Plug 'lervag/vimtex' " LaTeX support
-Plug 'leissa/vim-acme' " 6502-family assembler
-Plug 'mbbill/undotree' " Undo tree
-Plug 'puremourning/vimspector' " Debugger
-Plug 'voldikss/vim-floaterm' " Floating terminal
-Plug 'RRethy/vim-illuminate' " Highlight word under cursor
-Plug 'folke/todo-comments.nvim' " List TODOs from comments
-Plug 'f-person/auto-dark-mode.nvim' " Switch between dark and light mode
+lua << EOF
+vim.pack.add({
+  -- LSP and autocompletion
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/hrsh7th/cmp-nvim-lsp',
+  'https://github.com/hrsh7th/cmp-buffer',
+  'https://github.com/hrsh7th/cmp-path',
+  'https://github.com/hrsh7th/cmp-cmdline',
+  'https://github.com/hrsh7th/nvim-cmp',
+  'https://github.com/L3MON4D3/LuaSnip',
+  'https://github.com/saadparwaiz1/cmp_luasnip',
 
-call plug#end()
+  -- Navigation and search
+  'https://github.com/junegunn/fzf',
+  'https://github.com/junegunn/fzf.vim',
+  'https://github.com/scrooloose/nerdtree',
+
+  -- UI
+  'https://github.com/nvim-lualine/lualine.nvim',
+  'https://github.com/arcticicestudio/nord-vim',
+  'https://github.com/arzg/vim-colors-xcode',
+  'https://github.com/rakr/vim-one',
+  'https://github.com/f-person/auto-dark-mode.nvim',
+
+  -- Git
+  'https://github.com/airblade/vim-gitgutter',
+  'https://github.com/tpope/vim-fugitive',
+
+  -- Editing
+  'https://github.com/godlygeek/tabular',
+  'https://github.com/easymotion/vim-easymotion',
+  'https://github.com/terryma/vim-multiple-cursors',
+  'https://github.com/tpope/vim-surround',
+  'https://github.com/tpope/vim-repeat',
+  'https://github.com/tpope/vim-unimpaired',
+  'https://github.com/scrooloose/nerdcommenter',
+  'https://github.com/RRethy/vim-illuminate',
+
+  -- Language and filetype support
+  'https://github.com/sheerun/vim-polyglot',
+  'https://github.com/plasticboy/vim-markdown',
+  'https://github.com/lervag/vimtex',
+  'https://github.com/leissa/vim-acme',
+  'https://github.com/alvan/vim-closetag',
+
+  -- Utility
+  'https://github.com/neomake/neomake',
+  'https://github.com/tpope/vim-eunuch',
+  'https://github.com/tpope/vim-sleuth',
+  'https://github.com/Chiel92/vim-autoformat',
+  'https://github.com/airblade/vim-rooter',
+  'https://github.com/mbbill/undotree',
+  'https://github.com/voldikss/vim-floaterm',
+  'https://github.com/folke/todo-comments.nvim',
+
+  -- Distraction-free writing
+  'https://github.com/junegunn/goyo.vim',
+  'https://github.com/junegunn/limelight.vim',
+
+  -- Debugging
+  'https://github.com/puremourning/vimspector',
+})
+EOF
 
 " Misc
 let mapleader = "\<Space>"

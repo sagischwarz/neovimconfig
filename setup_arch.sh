@@ -11,4 +11,3 @@ sudo pacman -S neovim python-neovim xclip xsel ruby clang python-language-server
 sudo npm install -g neovim
 gem install neovim
 
-nvim +PlugInstall +UpdateRemotePlugins +qa
